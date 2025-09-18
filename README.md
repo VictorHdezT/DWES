@@ -1,4 +1,4 @@
-# behuman
+# vüme
 
 **Creador:** Victor Hernandez  
 
@@ -6,7 +6,7 @@
 
 ## 🌍 Descripción
 
-**behuman** (nombre provisional) es una futura marca de ropa que busca transmitir **la conexión humana** y, al mismo tiempo, **ayudar al planeta**.  
+**vüme**  es una futura marca de ropa que busca transmitir **la conexión humana** y, al mismo tiempo, **ayudar al planeta**.  
 
 Nuestra visión es contribuir a un mejor desarrollo de la actividad textil en **países desfavorecidos**, mejorando la situación de quienes más lo necesitan.  
 
@@ -25,7 +25,7 @@ Además, con cada venta realizada, se destinará una parte a **limpiar ríos y o
 
 ## 📌 Filosofía
 
-En **behuman**, creemos que la moda puede ir más allá de las tendencias:  
+En **vüme**, creemos que la moda puede ir más allá de las tendencias:  
 puede ser una herramienta de **cambio social y ambiental**.  
 
 Cada prenda cuenta una historia, no solo de estilo, sino de **conciencia** y **responsabilidad**.  
