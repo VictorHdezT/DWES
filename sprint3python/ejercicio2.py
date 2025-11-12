@@ -1,42 +1,68 @@
-
 import random
-
-opciones = ["piedra","papel","tijera","lagarto","spock"]
 
 reglas = {
     "tijera": ["papel", "lagarto"],
     "papel": ["piedra", "spock"],
     "piedra": ["tijera", "lagarto"],
     "lagarto": ["spock", "papel"],
-    "spock": ["tijera", "piedra"]
+    "spock": ["piedra", "tijera"]
 }
 
-numero_rondas = input("Introduce un numero de rondas: ")
 
-def partidas_gp(jugador, maquina):
-    if jugador == maquina:
-        return  0
-    elif maquina in reglas[jugador]:
+
+opciones = list(reglas.keys())
+
+def determinar_resultado(usuario, cpu):
+    if usuario == cpu:
+        return 0
+    elif cpu in reglas[usuario]:
         return 1
     else:
         return -1
 
-jugar = ("s")
+def jugar_partida():
+    while True:
+        try:
+            n = int(input("¿Cuantas rondas desea jugar? (Número impar = o > de 1)."))
+            if n >= 1 and n % 2 == 1:
+                break
+            else:
+                print("Debe ser un número impar mayor o igual que 1. ")
+        except ValueError:
+            print("Por favor, introduzca un número válido. ")
 
-while jugar == "s":
-    jugador = input("Elige entre: piedra, papel, piedra, lagarto o spock: ").lower()
+    victorias_usuario = 0
+    victorias_cpu = 0
+    rondas_ganar = n % 2 + 1
 
-    while jugador not in opciones:
-        input("Apuesta no válida, elija otra jugada:").lower()
+    while victorias_usuario < rondas_ganar and victorias_cpu < rondas_ganar:
+        usuario = input("Elige piedra, papel, tijera, lagarto o spock: ").lower()
+        if usuario not in opciones:
+            print("Por favor, elija una opción válida. Intentelo de nuevo")
+            continue
+        cpu = random.choice(opciones)
+        print(f"La CPU escogió: {cpu}")
 
-    maquina = random.choice(opciones)
-    print(f"La maquina eligió: {maquina}")
+        resultado = determinar_resultado(usuario, cpu)
+        if resultado == 0:
+            print("Empate")
+        elif resultado == 1:
+            print("¡Ganas la ronda!")
+            victorias_usuario += 1
+        else:
+            print("Gana la CPU")
+            victorias_cpu += 1
 
-    if jugador == maquina:
-            print("Empate!")
-    elif maquina in reglas[jugador]:
-            print("Has ganado! Felicidades.")
+        print(f"Marcador -> Usuario: {victorias_usuario} | CPU: {victorias_cpu} | Rondas: {rondas_ganar}")
+
+    if victorias_cpu < victorias_usuario:
+        print("¡Felicidades, has ganado la partida!")
     else:
-        print("Has perdido... Que pena.")
+        print("La CPU ha ganado la partida")
 
-    jugar = input("Echamos otra? (s/n): ").lower()
+    repetir = input("Quieres jugar otra vez? (s/n): ").lower()
+    if repetir == "s":
+        jugar_partida()
+
+if __name__ == "__main__":
+    jugar_partida()
